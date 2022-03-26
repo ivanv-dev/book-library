@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="topbar">
+            <input type="text" class="search">
+            <button class="add-new">Search</button>
+            <button class="add-new">Add new</button>
+        </div>
+        <div class="books">
+            <div class="book-card">
+                <p class="title"></p>
+                <p class="author"></p>
+                <p class="descripton"></p>
+                <div class="read">Book is read!</div>
+                <div class="not-read">Book was not read</div>
+            </div>
+        </div>
+
+        <div class="modal">
+            <form action="#">
+                <label for="title"></label>
+                <input type="text" id="title" name="title">
+
+                <label for="author"></label>
+                <input type="text" id="author" name="author">
+
+                <label for="descripton"></label>
+                <textarea name="descripton" id="descripton" cols="30" rows="10"></textarea>
+
+                <!-- Rounded switch -->
+          <label class="switch" for="read">
+         <input type="checkbox" id="read" name="read">
+         <span class="slider round"></span>
+         </label>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
