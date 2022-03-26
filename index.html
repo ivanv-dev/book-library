@@ -5,43 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="/script.js" defer></script>
     <title>Document</title>
 </head>
 <body>
     <div class="container">
         <div class="topbar">
             <input type="text" class="search">
-            <button class="add-new">Search</button>
-            <button class="add-new">Add new</button>
+            <button class="add-new" id="searchBtn">Search</button>
+            <button class="add-new" id="addBtn">Add new</button>
         </div>
         <div class="books">
             <div class="book-card">
                 <p class="title">Harry Potter and the Goblet Of Fire</p>
                 <p class="author">J.R.R</p>
                 <p class="descripton">GUy wizrad buuuu</p>
+                <p class="pages">GUy wizrad buuuu</p>
+
                 <div class="read">Book is read!</div>
                 <div class="not-read">Book was not read</div>
             </div>
-        </div>
 
+  
+        </div>
+<div class="modal-container">
         <div class="modal">
-            <form action="#">
+            <form action="#" id="bookForm">
                 <label for="title"></label>
-                <input type="text" id="title" name="title">
+                <input type="text" id="title" placeholder="Type title here" name="title">
 
                 <label for="author"></label>
-                <input type="text" id="author" name="author">
+                <input type="text" id="author" placeholder="Type author name here" name="author">
 
-                <label for="descripton"></label>
-                <textarea name="descripton" id="descripton" cols="30" rows="10"></textarea>
+                <label class="descripton" for="descripton"></label>
+                <textarea name="descripton" id="descripton" placeholder="Description here..."></textarea>
 
-                <!-- Rounded switch -->
+                <label for="pages"></label>
+                <input type="text" id="pages" placeholder="Pages number" name="pages">
+
           <label class="switch" for="read">
          <input type="checkbox" id="read" name="read">
          <span class="slider round"></span>
          </label>
+         <div class="buttons-form">
+            <button class="close button">Close</button>
+            <button class="add button">Add</button>
+         </div>
+  
+
             </form>
         </div>
+    </div>
     </div>
 </body>
 </html>
