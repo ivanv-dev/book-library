@@ -11,7 +11,6 @@
 <body>
     <div class="container">
         <div class="topbar">
-            <input type="text" class="search">
             <button class="add-new" id="searchBtn">Search</button>
             <button class="add-new" id="addBtn">Add new</button>
         </div>
@@ -21,9 +20,7 @@
                 <p class="author">J.R.R</p>
                 <p class="descripton">GUy wizrad buuuu</p>
                 <p class="pages">GUy wizrad buuuu</p>
-
-                <div class="read">Book is read!</div>
-                <div class="not-read">Book was not read</div>
+                <button class="delete">Delete</button>
             </div>
 
   
@@ -44,9 +41,10 @@
                 <input type="text" id="pages" placeholder="Pages number" name="pages">
 
           <label class="switch" for="read">
-         <input type="checkbox" id="read" name="read">
-         <span class="slider round"></span>
+              Read?
          </label>
+         <input type="checkbox" id="read" name="read" placeholder="Procitano">
+
          <div class="buttons-form">
             <button class="close button">Close</button>
             <button class="add button">Add</button>

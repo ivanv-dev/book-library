@@ -11,7 +11,7 @@ Book.prototype.showInfo = function(){
 
 
 
-const books = [];
+let books = [];
 const searchBooksButton = document.querySelector('#searchBtn');
 const addBookButton = document.querySelector('#addBtn');
 const modal = document.querySelector('.modal-container');
@@ -19,6 +19,7 @@ const closeModalButton = document.querySelector('.close');
 const addBookModalButton = document.querySelector('.add');
 const bookForm = document.querySelector('#bookForm');
 const booksList = document.querySelector('.books');
+const bookDeleteBtn = document.querySelector('.delete');
 
 const titleField = document.querySelector('#title');
 const authorField = document.querySelector('#author');
@@ -30,6 +31,12 @@ function addBookToThePage(book){
     const author = document.createElement('p');
     const description = document.createElement('p');
     const pages = document.createElement('p');
+    const read = document.createElement('p');
+    const deleteBtn = document.createElement('button');
+
+
+    const readMessage = book.read ? 'it is read' : 'not read yet';
+
 
     bookItem.classList.add('book-card');
     title.classList.add('title');
@@ -40,10 +47,24 @@ function addBookToThePage(book){
     description.textContent = `Description: ${book.description}`
     pages.classList.add('pages');
     pages.textContent = `Pages: ${book.pages}`;
+
+    read.classList.add('read');
+    read.textContent = `Read status: ${readMessage}`;
+
+    deleteBtn.classList.add('delete');
+    deleteBtn.textContent = 'Delete';
+
+    deleteBtn.addEventListener('click', e => {
+        bookDeleteHelper(e);
+      })
+
     bookItem.appendChild(title);
     bookItem.appendChild(author);
     bookItem.appendChild(description);
     bookItem.appendChild(pages);
+    bookItem.appendChild(read);
+    bookItem.appendChild(deleteBtn);
+
     bookItem.dataset.index = books.length - 1;
 
     booksList.appendChild(bookItem);
@@ -69,10 +90,25 @@ addBookModalButton.addEventListener('click', e => {
     const author = document.querySelector('#author').value;
     const description = document.querySelector('#descripton').value;
     const pages = document.querySelector('#pages').value;
+    const read = document.querySelector('#read').checked;
 
 
-    const newBook = new Book(title, author, description, pages, null);
+    const newBook = new Book(title, author, description, pages, read);
     books.push(newBook);
     addBookToThePage(newBook);
+    bookForm.reset();
     modal.style.display = "none";
 })
+
+bookDeleteBtn
+
+function bookDeleteHelper(e){
+    const elementForRemoval = e.target.parentElement;
+    const indexForRemoval = elementForRemoval.dataset.index;
+    console.log(books, 'prve books')
+    books = books.filter((book, index) => {
+        return index != indexForRemoval;
+    })
+    console.log(books, 'books a sada')
+    console.log(e.target.parentElement.remove(), 'hmm');
+}
